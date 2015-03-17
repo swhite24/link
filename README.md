@@ -1,6 +1,6 @@
 # link
 
-Parses, generates `"Link"` headers used for pagination, as defined in
+Parses `"Link"` headers used for pagination, as defined in
 [rfc5988](http://tools.ietf.org/html/rfc5988).
 
 ## Installation
