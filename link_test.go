@@ -43,6 +43,22 @@ func TestReadMultiple(t *testing.T) {
 	}
 }
 
+func TestExtra(t *testing.T) {
+	r, _ := http.NewRequest("GET", "", nil)
+	r.Header.Add("Link", "<https://api.github.com/search/code?q=addClass+user%3Amozilla&page=2>; rel=\"next\"; title=\"foobar\"")
+
+	g := Parse(r)
+	if len(g) != 1 {
+		t.Errorf("Incorrent number of links parsed")
+	}
+	if g["next"] == nil {
+		t.Errorf("Unable to parse next link")
+	}
+	if g["next"].Extra["title"] != "foobar" {
+		t.Errorf("Failed to grab title extra")
+	}
+}
+
 func TestNoLink(t *testing.T) {
 	r, _ := http.NewRequest("GET", "", nil)
 	g := Parse(r)
