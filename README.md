@@ -1,5 +1,8 @@
 # link
 
+
+[![Build Status](https://travis-ci.org/swhite24/link.svg)](https://travis-ci.org/swhite24/link)
+
 Parses `"Link"` headers used for pagination, as defined in
 [rfc5988](http://tools.ietf.org/html/rfc5988).
 
